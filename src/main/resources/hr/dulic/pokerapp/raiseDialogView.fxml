@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.dulic.pokerapp.controllers.RaiseInputController">
+   <children>
+      <AnchorPane fx:id="anchorPane" prefHeight="509.0" prefWidth="600.0">
+         <children>
+            <Slider fx:id="slider" blockIncrement="2.0" layoutX="51.0" layoutY="90.0" orientation="VERTICAL" prefHeight="329.0" prefWidth="50.0" />
+            <Label fx:id="lblAmount" alignment="CENTER" layoutX="256.0" layoutY="224.0" prefHeight="61.0" prefWidth="89.0" text="Amount" textAlignment="CENTER" />
+            <Button fx:id="btnRaise" layoutX="226.0" layoutY="359.0" mnemonicParsing="false" onAction="#onBtnRaiseClick" prefHeight="67.0" prefWidth="149.0" text="Raise" />
+            <Label fx:id="lblMin" layoutX="43.0" layoutY="426.0" prefHeight="32.0" prefWidth="67.0" text="Min" textAlignment="CENTER" />
+            <Label fx:id="lblMax" layoutX="43.0" layoutY="58.0" prefHeight="32.0" prefWidth="67.0" text="Max" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

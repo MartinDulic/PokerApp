@@ -1,0 +1,13 @@
+.mainPane {
+
+    -fx-background-image: url(otherAssets/tile.png);
+    -fx-background-repeat: repeat;
+    -fx-background-size: auto;
+
+}
+
+Label {
+
+    -fx-color: red;
+
+}
