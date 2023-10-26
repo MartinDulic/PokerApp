@@ -3,7 +3,6 @@ package hr.dulic.pokerapp.model;
 import hr.dulic.pokerapp.model.enums.HandType;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Hand implements Serializable {

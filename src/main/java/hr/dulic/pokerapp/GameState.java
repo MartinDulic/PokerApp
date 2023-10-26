@@ -3,8 +3,6 @@ package hr.dulic.pokerapp;
 import hr.dulic.pokerapp.model.Card;
 import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.model.enums.GameFaze;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
 
 import java.io.Serializable;
 import java.util.List;

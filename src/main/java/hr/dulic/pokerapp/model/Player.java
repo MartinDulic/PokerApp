@@ -40,7 +40,7 @@ public class Player implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Player player = (Player) o;
-        return id == player.id;
+        return id.equals( player.id);
     }
 
     @Override

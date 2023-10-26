@@ -4,9 +4,8 @@ import hr.dulic.pokerapp.model.Card;
 import hr.dulic.pokerapp.GameState;
 import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.model.enums.GameFaze;
-import javafx.animation.Timeline;
 import javafx.scene.control.Alert;
-import javafx.util.Duration;
+
 
 import java.io.*;
 import java.util.List;
