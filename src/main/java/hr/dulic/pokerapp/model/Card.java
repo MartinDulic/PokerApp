@@ -63,7 +63,6 @@ public class Card  implements Serializable {
             case Queen -> "q";
             case King -> "k";
             case Ace -> "a";
-            default -> "ERROR";
         };
 
         String imgPath=IMG_DIR_PATH + suitSymbol + notationSymbol + "_large.png";

@@ -9,6 +9,7 @@ import hr.dulic.pokerapp.model.enums.CardSuite;
 import hr.dulic.pokerapp.model.enums.GameFaze;
 import hr.dulic.pokerapp.model.enums.HandType;
 import hr.dulic.pokerapp.utils.DialogUtils;
+import hr.dulic.pokerapp.utils.DocumentationUtils;
 import hr.dulic.pokerapp.utils.FileUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -23,6 +24,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -82,6 +86,8 @@ public class HelloController {
     private MenuItem mniSave;
     @FXML
     private MenuItem mniLoad;
+    @FXML
+    private MenuItem mniCreateDocs;
 
 
 
@@ -554,8 +560,7 @@ public class HelloController {
 
         for (Player player : straightPlayers){
             List<Card> cards = new ArrayList<>(player.getWinnningHand().getCards());
-            cards.forEach(c-> System.out.println(c.toString()));
-            System.out.println(".-.-.-.-.-.-.-.-.-.");
+
 
             if (!cards.isEmpty()){
 
@@ -1043,8 +1048,6 @@ public class HelloController {
             runningSum=recoveredGameState.getRunningSum();
             turnTime=recoveredGameState.getTurnTime();
 
-
-
             paintPlayerCards(activePlayer);
             setPlayerLblValues(activePlayer);
             lblPotAmount.setText(String.valueOf(pot));
@@ -1104,21 +1107,72 @@ public class HelloController {
 
         }
 
-
-
-
-
-
-
-
-
-
         DialogUtils.showDialog(Alert.AlertType.INFORMATION,
-                "Game loaded!", "Your game has been successfully loaded!");
+                "Game loaded!", "Your game has been successfully loaded!"
+        );
 
     }
 
+    public void createDocumentation(){
 
+        try {
+            String HTMLHeader= """
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                    </head>
+                    <body>
+                        \s
+                       """;
+
+            String HTMLFooter = """
+                    </body>
+                    </html>""\";
+        
+                        """;
+
+            StringBuilder stringBuilder= new StringBuilder();
+
+
+            List<String> listOfClassFilePaths = Files.walk(Paths.get("target"))
+                    .map(Path::toString)
+                    .filter(f -> f.endsWith(".class"))
+                    .filter(f -> !f.endsWith("module-info.class"))
+                    .toList();
+
+            for(String classFilePath : listOfClassFilePaths) {
+                String[] pathTokens = classFilePath.split("classes");
+                String secondToken = pathTokens[1];
+                String fqnWithSlashes = secondToken.substring(1, secondToken.lastIndexOf('.'));
+                String fqn = fqnWithSlashes.replace('\\', '.');
+                Class<?> deserializedClass = Class.forName(fqn);
+
+                DocumentationUtils.readClassAndMembersInfo(deserializedClass,stringBuilder);
+                System.out.println(stringBuilder);
+            }
+
+            String docs= HTMLHeader + "<div>" + stringBuilder + "</div>" + HTMLFooter;
+            Path htmlDocumentationFile = Path.of("documentation.html");
+            if (!Files.exists(htmlDocumentationFile)){
+                Files.createFile(htmlDocumentationFile);
+            }
+            Files.write(htmlDocumentationFile, docs.getBytes());
+
+            DialogUtils.showDialog(Alert.AlertType.INFORMATION,
+                    "Documentation created!", "Documentation has been successfully created!"
+            );
+
+        } catch (IOException | ClassNotFoundException e) {
+            DialogUtils.showDialog(Alert.AlertType.INFORMATION,
+                    "Documentation not created!", "Error : Documentation has not been created!"
+            );
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
 
 
 

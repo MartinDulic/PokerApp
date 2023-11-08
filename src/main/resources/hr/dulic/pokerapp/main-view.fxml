@@ -72,6 +72,7 @@
                     <MenuItem fx:id="mniNew" mnemonicParsing="false" onAction="#saveGame" text="New" />
                         <MenuItem fx:id="mniSave" mnemonicParsing="false" onAction="#saveGame" text="Save" />
                         <MenuItem fx:id="mniLoad" mnemonicParsing="false" onAction="#loadGame" text="Load" />
+                        <MenuItem fx:id="mniCreateDocs" mnemonicParsing="false" onAction="#createDocumentation" text="Create Documentation" />
                   </items>
                 </Menu>
               </menus>
