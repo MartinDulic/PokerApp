@@ -49,8 +49,6 @@ public class HelloController {
     private ImageView ivCommunityCard5;
 
 
-
-
     @FXML
     private Button btnCheck;
     @FXML
@@ -76,6 +74,7 @@ public class HelloController {
     @FXML
     private Label lblPotAmount;
 
+
     @FXML
     private MenuBar menuBar;
     @FXML
@@ -88,7 +87,6 @@ public class HelloController {
     private MenuItem mniLoad;
     @FXML
     private MenuItem mniCreateDocs;
-
 
 
     List<Player> players;
@@ -104,10 +102,6 @@ public class HelloController {
     Timeline timeline;
     double pot;
     double runningSum;
-
-
-
-
 
     public void initialize(){
 
@@ -162,7 +156,7 @@ public class HelloController {
        smallBlindPlayer.setBalance(balance);
 
        bigBlindPlayer.setRoundBet(GameRules.bigBlind);
-       balance = bigBlindPlayer.getBalance() -bigBlindPlayer.getRoundBet();
+       balance = bigBlindPlayer.getBalance() - bigBlindPlayer.getRoundBet();
        bigBlindPlayer.setBalance(balance);
 
        runningSum=bigBlindPlayer.getRoundBet();
@@ -840,7 +834,6 @@ public class HelloController {
         activePlayer.setBalance(balance - callAmount);
 
         onAnyBtnPressed();
-
     }
 
     public void fold(){

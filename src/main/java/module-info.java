@@ -16,4 +16,6 @@ module hr.dulic.pokerapp {
     opens hr.dulic.pokerapp.model.enums to javafx.fxml;
     exports hr.dulic.pokerapp.utils;
     opens hr.dulic.pokerapp.utils to javafx.fxml;
+    exports hr.dulic.pokerapp.utils.gameUtils;
+    opens hr.dulic.pokerapp.utils.gameUtils to javafx.fxml;
 }

@@ -21,6 +21,10 @@ public class GameState implements Serializable {
     private Integer turnTime;
     private Double pot;
     private Double runningSum;
+    private Player winner;
+
+    public GameState() {
+    }
 
     public GameState(List<Player> players, List<Player> remainingPlayers, Player activePlayer, Player bigBlindPlayer,
                      Player smallBlindPlayer, List<Card> deck, List<Card> communityCards, GameFaze faze, Integer turnsToNextFaze,
@@ -43,22 +47,20 @@ public class GameState implements Serializable {
     public List<Player> getPlayers() {
         return players;
     }
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 
     public Integer getTurnTime() {
         return turnTime;
     }
-
     public void setTurnTime(Integer turnTime) {
         this.turnTime = turnTime;
-    }
-    public void setPlayers(List<Player> players) {
-        this.players = players;
     }
 
     public List<Player> getRemainingPlayers() {
         return remainingPlayers;
     }
-
     public void setRemainingPlayers(List<Player> remainingPlayers) {
         this.remainingPlayers = remainingPlayers;
     }
@@ -66,7 +68,6 @@ public class GameState implements Serializable {
     public Player getActivePlayer() {
         return activePlayer;
     }
-
     public void setActivePlayer(Player activePlayer) {
         this.activePlayer = activePlayer;
     }
@@ -74,7 +75,6 @@ public class GameState implements Serializable {
     public Player getBigBlindPlayer() {
         return bigBlindPlayer;
     }
-
     public void setBigBlindPlayer(Player bigBlindPlayer) {
         this.bigBlindPlayer = bigBlindPlayer;
     }
@@ -82,7 +82,6 @@ public class GameState implements Serializable {
     public Player getSmallBlindPlayer() {
         return smallBlindPlayer;
     }
-
     public void setSmallBlindPlayer(Player smallBlindPlayer) {
         this.smallBlindPlayer = smallBlindPlayer;
     }
@@ -90,7 +89,6 @@ public class GameState implements Serializable {
     public List<Card> getDeck() {
         return deck;
     }
-
     public void setDeck(List<Card> deck) {
         this.deck = deck;
     }
@@ -98,7 +96,6 @@ public class GameState implements Serializable {
     public List<Card> getCommunityCards() {
         return communityCards;
     }
-
     public void setCommunityCards(List<Card> communityCards) {
         this.communityCards = communityCards;
     }
@@ -106,7 +103,6 @@ public class GameState implements Serializable {
     public GameFaze getFaze() {
         return faze;
     }
-
     public void setFaze(GameFaze faze) {
         this.faze = faze;
     }
@@ -114,7 +110,6 @@ public class GameState implements Serializable {
     public Integer getTurnsToNextFaze() {
         return turnsToNextFaze;
     }
-
     public void setTurnsToNextFaze(Integer turnsToNextFaze) {
         this.turnsToNextFaze = turnsToNextFaze;
     }
@@ -122,7 +117,6 @@ public class GameState implements Serializable {
     public Double getPot() {
         return pot;
     }
-
     public void setPot(Double pot) {
         this.pot = pot;
     }
@@ -130,8 +124,15 @@ public class GameState implements Serializable {
     public Double getRunningSum() {
         return runningSum;
     }
-
     public void setRunningSum(Double runningSum) {
         this.runningSum = runningSum;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
     }
 }

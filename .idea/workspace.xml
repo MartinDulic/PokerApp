@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Setting up IDE with github">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/DocumentationUtils.java" afterDir="false" />
+    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Begun implementing networking, server side refactoring done.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/NetworkConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/CardUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/client-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savedGame.dat" beforeDir="false" afterPath="$PROJECT_DIR$/savedGame.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +32,17 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -39,21 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PREDATOR/Desktop/Projects/Tet&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "networking",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "last_opened_file_path": "C:/Users/PREDATOR/Desktop/Projects/Java 2 Projekt/PokerApp/src/main/resources/hr/dulic/pokerapp",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\hr\dulic\pokerapp" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\hr\dulic\pokerapp\poker_cards_chips_2d" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\pictures" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\java\hr\dulic\pokerapp" />
@@ -69,6 +86,7 @@
       <recent name="hr.dulic.pokerapp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hr.dulic.pokerapp.model" />
       <recent name="hr.dulic.pokerapp.controllers" />
     </key>
   </component>
@@ -77,15 +95,72 @@
       <command value="--global user.email &quot;dulicmartin@gmail.com&quot;" />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="PokerApp" type="Application" factoryName="Application" singleton="false">
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Player1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
       <module name="PokerApp" />
-      <option name="PROGRAM_PARAMETERS" value="PlayerOne" />
+      <option name="PROGRAM_PARAMETERS" value="CLIENT Player1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Player2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
+      <module name="PokerApp" />
+      <option name="PROGRAM_PARAMETERS" value="CLIENT Player2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
+      <module name="PokerApp" />
+      <option name="PROGRAM_PARAMETERS" value="CLIENT Player3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player4" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
+      <module name="PokerApp" />
+      <option name="PROGRAM_PARAMETERS" value="CLIENT Player4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player5" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
+      <module name="PokerApp" />
+      <option name="PROGRAM_PARAMETERS" value="CLIENT Player5" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player6" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
+      <module name="PokerApp" />
+      <option name="PROGRAM_PARAMETERS" value="CLIENT Player6" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
+      <module name="PokerApp" />
+      <option name="PROGRAM_PARAMETERS" value="SERVER" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Player1" />
+      <item itemvalue="Application.Player2" />
+      <item itemvalue="Application.Player3" />
+      <item itemvalue="Application.Player4" />
+      <item itemvalue="Application.Player5" />
+      <item itemvalue="Application.Player6" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -110,12 +185,21 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1698280909978</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Added create documentation functionality.">
+      <option name="closed" value="true" />
+      <created>1699447598556</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1699447598556</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setting up IDE with github" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setting up IDE with github" />
+    <MESSAGE value="Added create documentation functionality." />
+    <MESSAGE value="Begun implementing networking, server side refactoring done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Begun implementing networking, server side refactoring done." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
