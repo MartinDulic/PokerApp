@@ -1,9 +1,12 @@
 package hr.dulic.pokerapp.utils.gameUtils;
 
 import hr.dulic.pokerapp.GameState;
+import hr.dulic.pokerapp.controllers.ServerController;
+import hr.dulic.pokerapp.model.ClientInstance;
 import hr.dulic.pokerapp.model.GameRules;
 import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.model.enums.GameFaze;
+import hr.dulic.pokerapp.utils.networkUtils.NetworkUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
@@ -28,9 +31,19 @@ public class TurnUtils {
 
         timeline.setCycleCount(GameRules.turnTime);
         PlayerActionUtils playerActionUtils = new PlayerActionUtils();
-        Timeline timeline1=timeline;
+        Timeline timeline1 = timeline;
         timeline.setOnFinished(e -> playerActionUtils.doFold(gameState, timeline1));
         timeline.play();
+
+        ClientInstance cI = new ClientInstance();
+        for (ClientInstance clientInstance : ServerController.clientInstances) {
+            if(clientInstance.getPlayer() == gameState.getActivePlayer()) {
+                cI = clientInstance;
+                break;
+            }
+        }
+
+        GameStateUtils.sendGameState(gameState, cI);
     }
 
     public void endPlayerTurn(GameState gameState, Timeline timeline) {
@@ -80,7 +93,7 @@ public class TurnUtils {
         startPlayerTurn(gameState, timeline);
     }
 
-    public static void setGameStateStart(GameState gameState) {
+    public static void setGameStateStart(GameState gameState, List<ClientInstance> clientInstances) {
 
         gameState.setFaze(GameFaze.PREFLOP);
         gameState.setDeck(CardUtils.createShuffledDeck());
@@ -96,6 +109,11 @@ public class TurnUtils {
 
         CardUtils.dealCards(gameState);
         executeBlindBets(gameState);
+
+        for (ClientInstance clientInstance : clientInstances) {
+            GameStateUtils.sendGameState(gameState, clientInstance);
+        }
+
     }
 
     private static void setPlayerRoles(GameState gameState) {

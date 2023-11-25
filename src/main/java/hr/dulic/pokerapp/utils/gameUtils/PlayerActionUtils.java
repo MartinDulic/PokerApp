@@ -12,6 +12,7 @@ public class PlayerActionUtils {
         gameState.setPot(gameState.getPot() + gameState.getActivePlayer().getRoundBet());
         gameState.getActivePlayer().setRoundBet(0);
 
+        //get active player from players and set balance of that player to a value of a working copy from remaining players
         gameState.getPlayers().get(gameState.getPlayers().indexOf(gameState.getActivePlayer())).setBalance(gameState.getActivePlayer().getBalance());
 
         onAnyBtnPressed(gameState, timeline);

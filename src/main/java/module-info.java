@@ -18,4 +18,6 @@ module hr.dulic.pokerapp {
     opens hr.dulic.pokerapp.utils to javafx.fxml;
     exports hr.dulic.pokerapp.utils.gameUtils;
     opens hr.dulic.pokerapp.utils.gameUtils to javafx.fxml;
+    exports hr.dulic.pokerapp.utils.networkUtils;
+    opens hr.dulic.pokerapp.utils.networkUtils to javafx.fxml;
 }

@@ -23,6 +23,7 @@ public class GameState implements Serializable {
     private Double runningSum;
     private Player winner;
 
+
     public GameState() {
     }
 
