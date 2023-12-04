@@ -1,14 +1,15 @@
 package hr.dulic.pokerapp.utils.gameUtils;
 
-import hr.dulic.pokerapp.GameState;
+import hr.dulic.pokerapp.model.GameState;
 import hr.dulic.pokerapp.controllers.ServerController;
-import hr.dulic.pokerapp.model.ClientInstance;
 import hr.dulic.pokerapp.model.GameRules;
 import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.model.enums.GameFaze;
-import hr.dulic.pokerapp.utils.networkUtils.NetworkUtils;
+import hr.dulic.pokerapp.utils.DialogUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -17,33 +18,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TurnUtils {
 
-    public void startPlayerTurn(GameState gameState, Timeline timeline) {
+    public void startPlayerTurn(GameState gameState, Timeline timeline, Label labelCounter) {
         if (gameState.getTurnsToNextFaze() < 1) {
             setGameStateNext(gameState, timeline);
             return;
         }
 
-        int turnTime = GameRules.turnTime;
-        AtomicInteger secondsLeft = new AtomicInteger(turnTime);
+        AtomicInteger secondsLeft = new AtomicInteger(GameRules.turnTime + 1);
         timeline = new Timeline(
-                new KeyFrame(Duration.seconds(1), event -> gameState.setTurnTime(secondsLeft.getAndDecrement()))
-        );
+                new KeyFrame(Duration.seconds(1), event -> {gameState.setTurnTime(secondsLeft.getAndDecrement());
+                    labelCounter.setText(secondsLeft.toString());
+        }));
 
-        timeline.setCycleCount(GameRules.turnTime);
+        timeline.setCycleCount(GameRules.turnTime + 1);
         PlayerActionUtils playerActionUtils = new PlayerActionUtils();
         Timeline timeline1 = timeline;
         timeline.setOnFinished(e -> playerActionUtils.doFold(gameState, timeline1));
         timeline.play();
 
-        ClientInstance cI = new ClientInstance();
-        for (ClientInstance clientInstance : ServerController.clientInstances) {
-            if(clientInstance.getPlayer() == gameState.getActivePlayer()) {
-                cI = clientInstance;
-                break;
-            }
-        }
-
-        GameStateUtils.sendGameState(gameState, cI);
     }
 
     public void endPlayerTurn(GameState gameState, Timeline timeline) {
@@ -58,7 +50,7 @@ public class TurnUtils {
         gameState.setActivePlayer(gameState.getRemainingPlayers().get(nextIndex));
 
         gameState.setTurnsToNextFaze(gameState.getTurnsToNextFaze() - 1);
-        startPlayerTurn(gameState, timeline);
+        //startPlayerTurn(gameState, timeline);
     }
 
     private  void setGameStateNext(GameState gameState, Timeline timeline) {
@@ -90,15 +82,15 @@ public class TurnUtils {
         gameState.setTurnsToNextFaze(gameState.getRemainingPlayers().size());
         gameState.setRunningSum(0.0);
 
-        startPlayerTurn(gameState, timeline);
+        //startPlayerTurn(gameState, timeline);
     }
 
-    public static void setGameStateStart(GameState gameState, List<ClientInstance> clientInstances) {
+    public static void setGameStateStart(GameState gameState) {
 
         gameState.setFaze(GameFaze.PREFLOP);
         gameState.setDeck(CardUtils.createShuffledDeck());
         gameState.setCommunityCards(CardUtils.createCommunityCards(gameState.getDeck()));
-        gameState.setPlayers(PlayerUtils.getPlayers());
+        //Players set before execution of this
         gameState.setRemainingPlayers(new ArrayList<>(gameState.getPlayers()));
 
         setPlayerRoles(gameState);
@@ -110,9 +102,6 @@ public class TurnUtils {
         CardUtils.dealCards(gameState);
         executeBlindBets(gameState);
 
-        for (ClientInstance clientInstance : clientInstances) {
-            GameStateUtils.sendGameState(gameState, clientInstance);
-        }
 
     }
 

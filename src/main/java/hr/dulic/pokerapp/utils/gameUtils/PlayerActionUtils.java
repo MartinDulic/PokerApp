@@ -1,6 +1,6 @@
 package hr.dulic.pokerapp.utils.gameUtils;
 
-import hr.dulic.pokerapp.GameState;
+import hr.dulic.pokerapp.model.GameState;
 import javafx.animation.Timeline;
 
 

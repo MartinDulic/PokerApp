@@ -1,4 +1,4 @@
-package hr.dulic.pokerapp;
+package hr.dulic.pokerapp.model;
 
 import hr.dulic.pokerapp.model.Card;
 import hr.dulic.pokerapp.model.Player;
@@ -50,6 +50,9 @@ public class GameState implements Serializable {
     }
     public void setPlayers(List<Player> players) {
         this.players = players;
+    }
+    public void addPlayer(Player player) {
+        this.players.add(player);
     }
 
     public Integer getTurnTime() {

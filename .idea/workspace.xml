@@ -4,22 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Begun implementing networking, server side refactoring done.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/ClientInstance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/enums/NetworkMessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/GameStateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkUtils.java" afterDir="false" />
+    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Network connection astablished.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/ByteArrayUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/DrawUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/ClientInstance.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/NetworkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/CardUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/CardUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/GameStateUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +62,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "networking",
-    "jdk.selected.JAVA_MODULE": "openjdk-21",
-    "last_opened_file_path": "C:/Users/PREDATOR/Desktop/Projects/Java 2 Projekt/PokerApp/src/main/resources/hr/dulic/pokerapp",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;networking&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PREDATOR/Desktop/Projects/Java 2 Projekt/PokerApp/src/main/resources/hr/dulic/pokerapp&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\hr\dulic\pokerapp" />
@@ -94,7 +102,7 @@
       <command value="--global user.email &quot;dulicmartin@gmail.com&quot;" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Player1">
+  <component name="RunManager" selected="Application.Player4">
     <configuration name="Player1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
       <module name="PokerApp" />
@@ -198,14 +206,22 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1700722486795</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Network connection astablished.">
+      <option name="closed" value="true" />
+      <created>1700952431846</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1700952431846</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setting up IDE with github" />
     <MESSAGE value="Added create documentation functionality." />
     <MESSAGE value="Begun implementing networking, server side refactoring done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Begun implementing networking, server side refactoring done." />
+    <MESSAGE value="Network connection astablished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Network connection astablished." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

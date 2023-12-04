@@ -1,43 +1,41 @@
 package hr.dulic.pokerapp.controllers;
 
-import hr.dulic.pokerapp.GameState;
-import hr.dulic.pokerapp.model.ClientInstance;
-import hr.dulic.pokerapp.model.GameRules;
+import hr.dulic.pokerapp.model.GameState;
 import hr.dulic.pokerapp.utils.gameUtils.*;
+import hr.dulic.pokerapp.utils.networkUtils.ServerNetworkUtils;
 import javafx.animation.Timeline;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class ServerController {
+public class ServerController extends Thread{
+
+    @FXML
+    Label lblServerCounter;
+
     Timeline timeline;
     GameState gameState;
-    public static List<ClientInstance> clientInstances;
     public void initialize() {
         gameState = new GameState();
+        gameState.setPlayers(new ArrayList<>());
+        //Runs run() on a new thread
+        start();
     }
 
-    private void startGame() {
+    @Override
+    public void run() {
 
-        TurnUtils.setGameStateStart(gameState, clientInstances);
-        clientInstances = new ArrayList<>();
-
-    }
-
-    public void addClientInstance(ClientInstance clientInstance) {
-        clientInstances.add(clientInstance);
-        System.out.println("Server: Client instance added!");
-        if (clientInstances.size() == GameRules.numberOfPlayers) {
-            startGame();
-        }
-    }
-
-    public void startNewTurn(GameState gameState) {
-
+        ServerNetworkUtils.receivePlayersAsServer(gameState);
+        TurnUtils.setGameStateStart(gameState);
         TurnUtils turnUtils = new TurnUtils();
-        this.gameState = gameState;
-        turnUtils.startPlayerTurn(gameState, timeline);
+        turnUtils.startPlayerTurn(gameState, timeline, lblServerCounter);
+        ServerNetworkUtils.multicastGameStateAsServer(gameState);
+
+
 
     }
+
+
 }

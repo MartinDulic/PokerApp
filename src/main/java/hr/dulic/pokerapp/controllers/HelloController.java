@@ -1,6 +1,6 @@
 package hr.dulic.pokerapp.controllers;
 
-import hr.dulic.pokerapp.GameState;
+import hr.dulic.pokerapp.model.GameState;
 import hr.dulic.pokerapp.HelloApplication;
 import hr.dulic.pokerapp.model.*;
 import hr.dulic.pokerapp.utils.ComparatorUtilities;

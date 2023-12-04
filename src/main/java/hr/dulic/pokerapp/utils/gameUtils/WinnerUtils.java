@@ -1,6 +1,6 @@
 package hr.dulic.pokerapp.utils.gameUtils;
 
-import hr.dulic.pokerapp.GameState;
+import hr.dulic.pokerapp.model.GameState;
 import hr.dulic.pokerapp.model.Card;
 import hr.dulic.pokerapp.model.Hand;
 import hr.dulic.pokerapp.model.Player;
