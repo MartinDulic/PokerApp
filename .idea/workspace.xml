@@ -4,19 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Network connection with UDP established.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/PlayerAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/enums/PlayerActionType.java" afterDir="false" />
+    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Game state transfer enabled, working on game cycle when playing over internet.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/PlayerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/ThreadUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/login-dialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/DrawUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/client-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +33,9 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -92,7 +97,7 @@
       <command value="--global user.email &quot;dulicmartin@gmail.com&quot;" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Player4">
+  <component name="RunManager" selected="Application.Player2">
     <configuration name="Player1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.dulic.pokerapp.HelloApplication" />
       <module name="PokerApp" />
@@ -210,7 +215,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1701717293977</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Game state transfer enabled, working on game cycle when playing over internet.">
+      <option name="closed" value="true" />
+      <created>1701746822807</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1701746822807</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -219,7 +231,8 @@
     <MESSAGE value="Begun implementing networking, server side refactoring done." />
     <MESSAGE value="Network connection astablished." />
     <MESSAGE value="Network connection with UDP established." />
-    <option name="LAST_COMMIT_MESSAGE" value="Network connection with UDP established." />
+    <MESSAGE value="Game state transfer enabled, working on game cycle when playing over internet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Game state transfer enabled, working on game cycle when playing over internet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

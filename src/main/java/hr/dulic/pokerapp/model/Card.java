@@ -10,9 +10,9 @@ import java.util.Objects;
 
 public class Card  implements Serializable {
     private static final String IMG_DIR_PATH="file:src/main/resources/poker_cards_chips_2d/PNGs/cards/Set_A/large/card_a_";
-    public CardNotation Notation;
-    public CardSuite Suite;
-    public CardColor Color;
+    private final CardNotation Notation;
+    private final CardSuite Suite;
+    private CardColor Color;
     transient
     public Image image;
 

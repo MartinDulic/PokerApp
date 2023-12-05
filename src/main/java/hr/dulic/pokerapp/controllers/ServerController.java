@@ -6,11 +6,13 @@ import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.model.enums.PlayerActionType;
 import hr.dulic.pokerapp.utils.gameUtils.*;
 import hr.dulic.pokerapp.utils.networkUtils.ServerNetworkUtils;
+import hr.dulic.pokerapp.utils.viewUtils.ThreadUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -22,25 +24,24 @@ public class ServerController extends Thread{
 
     @FXML
     Label lblServerCounter;
+    @FXML
+    Label lblPlayer;
     Timeline timeline;
     GameState gameState;
     public void initialize() {
-        gameState = new GameState();
-        gameState.setPlayers(new ArrayList<>());
         //Runs run() on a new thread
         start();
     }
 
     @Override
     public void run() {
+        gameState = new GameState();
+        gameState.setPlayers(new ArrayList<>());
         //Receive  all players
         ServerNetworkUtils.receivePlayersAsServer(gameState);
 
         TurnUtils.setGameStateStart(gameState);
         startPlayerTurn();
-
-
-
 
     }
     public void startPlayerTurn() {
@@ -48,8 +49,8 @@ public class ServerController extends Thread{
             TurnUtils.setGameStateNext(gameState, timeline);
         }
 
-        AtomicInteger secondsLeft = new AtomicInteger(GameRules.turnTime + 1);
-
+        Platform.runLater(() -> lblPlayer.setText(gameState.getActivePlayer().getUsername()));
+        AtomicInteger secondsLeft = new AtomicInteger(GameRules.turnTime + 2);
         timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     gameState.setTurnTime(secondsLeft.getAndDecrement());
@@ -64,9 +65,36 @@ public class ServerController extends Thread{
 
         //send state and await response
         ServerNetworkUtils.multicastObjectAsServer(gameState);
+        //blocking
         gameState = ServerNetworkUtils.receiveGameStateAsServer(gameState);
-        doPlayerAction();
+        //if it is not the games end doPlayerAction
+        if(!restartGameIfEnd()){
+            doPlayerAction();
+        }
     }
+
+    private boolean restartGameIfEnd() {
+        if(gameState.getWinner() != null) {
+
+            gameState.getWinner().setBalance(gameState.getWinner().getBalance() + gameState.getPot());
+
+            System.out.println("GAME RESTARTING...");
+            ThreadUtils.pauseThread(1000);
+            System.out.println("3");
+            ThreadUtils.pauseThread(1000);
+            System.out.println("2");
+            ThreadUtils.pauseThread(1000);
+            System.out.println("1");
+            ThreadUtils.pauseThread(1000);
+
+            ServerNetworkUtils.multicastObjectAsServer(gameState);
+            //start();
+            return true;
+        }
+        return false;
+    }
+
+
 
     private void doPlayerAction() {
         if (gameState.getActivePlayer().getAction().getType() == PlayerActionType.FOLD) {
@@ -95,7 +123,10 @@ public class ServerController extends Thread{
         gameState.setActivePlayer(gameState.getRemainingPlayers().get(nextIndex));
 
         gameState.setTurnsToNextFaze(gameState.getTurnsToNextFaze() - 1);
-        startPlayerTurn();
+        //Continue game if not end
+        if(!restartGameIfEnd()) {
+            startPlayerTurn();
+        }
     }
 
 
@@ -107,14 +138,18 @@ public class ServerController extends Thread{
 
         //get active player from players and set balance of that player to a value of a working copy from remaining players
         gameState.getPlayers().get(gameState.getPlayers().indexOf(gameState.getActivePlayer())).setBalance(gameState.getActivePlayer().getBalance());
-        endPlayerTurn(gameState, timeline);
 
+
+        System.out.println("PLAYER: " + gameState.getActivePlayer().getUsername() + "IS BEING REMOVED!_!_!_!_!_!_!_!_!_!");
         gameState.getRemainingPlayers().remove(gameState.getActivePlayer());
 
         if (gameState.getRemainingPlayers().size() == 1) {
             WinnerUtils winnerUtils = new WinnerUtils();
             gameState.setWinner(winnerUtils.determineWinner(gameState, timeline));
+            System.out.println("WINNER: " + gameState.getWinner().getUsername());
         }
+
+        endPlayerTurn(gameState, timeline);
     }
 
     public void doCall(GameState gameState, Timeline timeline){

@@ -9,9 +9,6 @@ import java.util.Objects;
 
 public class Player implements Serializable {
 
-
-    private static Integer idCounter  = 0;
-    Integer id;
     String username;
     Double balance;
     Card[] pocketCards= new Card[2];
@@ -21,8 +18,6 @@ public class Player implements Serializable {
 
     public Player(String username, Double balance){
 
-        this.id = idCounter;
-        idCounter++;
         this.username=username;
         this.balance=balance;
         this.roundBet=0.0;
@@ -43,15 +38,12 @@ public class Player implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Player player = (Player) o;
-        return id.equals( player.id);
+        return username.equals(player.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
-    }
-    public Integer getId() {
-        return id;
+        return Objects.hash(username);
     }
 
     public void setPocketCards(Card[] pocketCards) {
@@ -74,10 +66,6 @@ public class Player implements Serializable {
         this.balance = balance;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public double getRoundBet() {
         return roundBet;
     }
@@ -90,7 +78,7 @@ public class Player implements Serializable {
         return winnningHand;
     }
 
-    public void setWinnningHand(Hand winnningHand) {
+    public void setWinningHand(Hand winnningHand) {
         this.winnningHand = winnningHand;
     }
 

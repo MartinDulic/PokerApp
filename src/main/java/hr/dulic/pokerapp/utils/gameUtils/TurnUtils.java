@@ -33,9 +33,15 @@ public class TurnUtils {
                 break;
 
             default:
+                for (Player player : gameState.getRemainingPlayers()) {
+                    gameState.setPot(gameState.getPot() + player.getRoundBet());
+                    player.setRoundBet(0);
+                }
                 WinnerUtils winnerUtils = new WinnerUtils();
-                gameState.setWinner(gameState.getRemainingPlayers().get(gameState.getRemainingPlayers().indexOf(winnerUtils.determineWinner(gameState,timeline))));
-                gameState.setFaze(GameFaze.PREFLOP);
+                gameState.setWinner(gameState.getRemainingPlayers().get(
+                        gameState.getRemainingPlayers().indexOf(winnerUtils.determineWinner(gameState,timeline))));
+                gameState.getWinner().setBalance(gameState.getWinner().getBalance() + gameState.getPot());
+                gameState.setPot(0.0);
                 return;
         }
 
@@ -62,6 +68,7 @@ public class TurnUtils {
         gameState.setPot(0.0);
         gameState.setRunningSum(0.0);
 
+        gameState.setWinner(null);
         CardUtils.dealCards(gameState);
         executeBlindBets(gameState);
 
@@ -75,14 +82,14 @@ public class TurnUtils {
         int currentIndex = 1;
         gameState.setSmallBlindPlayer(gameState.getRemainingPlayers().get(currentIndex));
 
-        if (currentIndex == playerCount) {
+        if (currentIndex == playerCount - 1) {
             currentIndex = 0;
         } else {
             currentIndex +=1;
         }
         gameState.setBigBlindPlayer(gameState.getRemainingPlayers().get(currentIndex));
 
-        if (currentIndex == playerCount) {
+        if (currentIndex == playerCount- 1) {
             currentIndex = 0;
         } else {
             currentIndex += 1;

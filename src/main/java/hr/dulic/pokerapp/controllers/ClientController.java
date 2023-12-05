@@ -5,6 +5,7 @@ import hr.dulic.pokerapp.model.enums.GameFaze;
 import hr.dulic.pokerapp.model.enums.PlayerActionType;
 import hr.dulic.pokerapp.utils.networkUtils.ClientNetworkUtils;
 import hr.dulic.pokerapp.utils.viewUtils.DrawUtils;
+import hr.dulic.pokerapp.utils.viewUtils.ThreadUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -62,6 +64,8 @@ public class ClientController extends Thread {
     private Label lblPotTxt;
     @FXML
     private Label lblPotAmount;
+    @FXML
+    private Label lblWinningMessage;
 
 
     @FXML
@@ -81,26 +85,38 @@ public class ClientController extends Thread {
     Player originalPlayer;
     Player workingPlayer;
     Timeline timeline;
+    boolean startGame;
     public void initialize() {
         //create player
-        originalPlayer = new Player("Matko", 2000.0);
-        System.out.println("CLIENT CONTROLLER: ORIGINAL PLAYER ID:" + originalPlayer.getId());
-        start();
+        startGame = true;
+        originalPlayer = new Player(PlayerConfig.playerName, 2000.0);
+        System.out.println("CLIENT CONTROLLER: ORIGINAL PLAYER:" + originalPlayer.getUsername());
 
+        start();
     }
 
     @Override
     public void run() {
-
         //Before starting send this clients player to server
         disableAllBtns();
         ClientNetworkUtils.sendObjectAsClient(originalPlayer);
 
+        receiveAndDisplayGameState();
+    }
+
+    private void receiveAndDisplayGameState() {
         while (true){
             //Await server response
             gameState = ClientNetworkUtils.receiveGameStateAsClient(getName());
-            workingPlayer = gameState.getRemainingPlayers().get(gameState.getRemainingPlayers().indexOf(originalPlayer));
+
             System.out.println("ClientController: working player set");
+            if (gameState.getWinner() != null) {
+                setPlayerBalance();
+                proclaimWinner(gameState);
+                //restartGame();
+                return;
+            }
+            workingPlayer = gameState.getRemainingPlayers().get(gameState.getRemainingPlayers().indexOf(originalPlayer));
 
             //if it is this players turn
             if (gameState.getActivePlayer().equals(originalPlayer)) {
@@ -133,15 +149,37 @@ public class ClientController extends Thread {
                 }
             }
         }
+    }
 
+    private void setPlayerBalance() {
+        originalPlayer = gameState.getPlayers().get(gameState.getPlayers().indexOf(originalPlayer));
+        lblBalanceValue.setText(originalPlayer.getBalance().toString());
+        System.out.println("Client Controller: originalPlayer balance: " + originalPlayer.getBalance());
+    }
 
+    private void proclaimWinner(GameState gameState) {
 
+        Platform.runLater(() -> lblWinningMessage.setText(gameState.getPot() + " Winner : " + gameState.getWinner().getUsername() + " " +
+                gameState.getWinner().getWinnningHand().getHandType().toString() + gameState.getWinner().getWiningInfo()));
+        disableAllBtns();
+    }
+
+    private void restartGame() {
+        System.out.println("GAME RESTARTING...");
+        ThreadUtils.pauseThread(1000);
+        System.out.println("3");
+        ThreadUtils.pauseThread(1000);
+        System.out.println("2");
+        ThreadUtils.pauseThread(1000);
+        System.out.println("1");
+        ThreadUtils.pauseThread(1000);
 
     }
 
     private void displayPreflop() {
         Platform.runLater(() -> DrawUtils.paintPlayerCards(workingPlayer, ivPlayerCard1, ivPlayerCard2));
         Platform.runLater(() -> DrawUtils.setPlayerLblValues(workingPlayer, lblUsername, lblBalanceValue));
+        Platform.runLater(() -> DrawUtils.setGameLblValues(lblPotAmount, gameState));
     }
 
     private void displayFlop() {

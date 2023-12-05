@@ -107,7 +107,7 @@ public class WinnerUtils {
 
                     winningCards.add(cards.get(i));
                     winningCards.add(cards.get(i+1));
-                    player.setWinnningHand(new Hand(winningCards, HandType.ONE_PAIR));
+                    player.setWinningHand(new Hand(winningCards, HandType.ONE_PAIR));
                     onePairPlayers.add(player);
 
                 }
@@ -153,7 +153,7 @@ public class WinnerUtils {
 
                         winningCards.add(cards.get(i));
                         winningCards.add(cards.get(i+1));
-                        player.setWinnningHand(new Hand(winningCards,HandType.TWO_PAIRS));
+                        player.setWinningHand(new Hand(winningCards,HandType.TWO_PAIRS));
                         twoPairPlayers.add(player);
 
                     }
@@ -191,7 +191,7 @@ public class WinnerUtils {
                         pairs.add(cards.get(i+1));
                         pairs.add(cards.get(i+2));
                         Hand hand= new Hand(pairs,HandType.THREE_OF_A_KIND);
-                        player.setWinnningHand(hand);
+                        player.setWinningHand(hand);
                         threeOfAKindPlayers.add(player);
                         break;
                     }
@@ -249,7 +249,7 @@ public class WinnerUtils {
 
                         winningCards.add(testCards.get(i));
                         winningCards.add(testCards.get(i+1));
-                        player.setWinnningHand(new Hand(winningCards,HandType.FULL_HOUSE));
+                        player.setWinningHand(new Hand(winningCards,HandType.FULL_HOUSE));
                         fullHousePlayers.add(player);
                         break;
 
@@ -282,7 +282,7 @@ public class WinnerUtils {
                         testCards.get(i + 2).getNotation() == testCards.get(i + 3).getNotation()) {
 
                     List<Card> winningHand = new ArrayList<>(testCards.subList(i, i + 4));
-                    player.setWinnningHand(new Hand(winningHand, HandType.FOUR_OF_A_KIND));
+                    player.setWinningHand(new Hand(winningHand, HandType.FOUR_OF_A_KIND));
                     fourOfAKindPlayers.add(player);
                     break;
                 }
@@ -309,7 +309,7 @@ public class WinnerUtils {
 
                     System.out.println("player inserted");
                     List<Card> winningHand=new ArrayList<>(player.getWinnningHand().getCards());
-                    player.setWinnningHand(new Hand(winningHand,HandType.STRAIGHT_FLUSH));
+                    player.setWinningHand(new Hand(winningHand,HandType.STRAIGHT_FLUSH));
                     straightFlushPlayers.add(player);
 
                 }
@@ -340,7 +340,7 @@ public class WinnerUtils {
                     if (player.getWinnningHand().getHandType().ordinal() < 5) {
                         List<Card> flush = new ArrayList<>(cards.subList(i, i + 5));
                         Hand hand = new Hand(flush, HandType.FLUSH);
-                        player.setWinnningHand(hand);
+                        player.setWinningHand(hand);
                         flushPlayers.add(player);
                     }
                     break; // Exit the loop after a flush is found.
@@ -452,7 +452,7 @@ public class WinnerUtils {
 
                     }
 
-                    player.setWinnningHand(new Hand(winningHand,HandType.STRAIGHT));
+                    player.setWinningHand(new Hand(winningHand,HandType.STRAIGHT));
                     straightPlayers.add(player);
 
                 }
