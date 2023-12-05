@@ -1,17 +1,17 @@
 package hr.dulic.pokerapp.utils.networkUtils;
 
 import hr.dulic.pokerapp.model.GameState;
-import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.utils.ByteArrayUtils;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.*;
 
 public class ClientNetworkUtils {
 
-    public static void sendPlayerAsClient(Player player){
+    public static <T extends Serializable> void sendObjectAsClient(T object){
         try (DatagramSocket clientSocket = new DatagramSocket()){
-            byte[] buffer = ByteArrayUtils.serializeObject(player);
+            byte[] buffer = ByteArrayUtils.serializeObject(object);
             InetAddress serverAddress = InetAddress.getByName(NetworkConfiguration.HOST);
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, NetworkConfiguration.SEREVR_PORT);
             clientSocket.send(packet);

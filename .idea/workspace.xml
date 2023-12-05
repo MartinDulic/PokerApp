@@ -4,30 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Network connection astablished.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/ByteArrayUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/DrawUtils.java" afterDir="false" />
+    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Network connection with UDP established.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/PlayerAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/enums/PlayerActionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/ClientInstance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/CardUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/CardUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/GameStateUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerActionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/PlayerUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/WinnerUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/viewUtils/DrawUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,13 +30,14 @@
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="networking" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,7 +56,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;networking&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;UDPnetworking&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/PREDATOR/Desktop/Projects/Java 2 Projekt/PokerApp/src/main/resources/hr/dulic/pokerapp&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
@@ -213,7 +203,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1700952431846</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Network connection with UDP established.">
+      <option name="closed" value="true" />
+      <created>1701717293977</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1701717293977</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -221,7 +218,8 @@
     <MESSAGE value="Added create documentation functionality." />
     <MESSAGE value="Begun implementing networking, server side refactoring done." />
     <MESSAGE value="Network connection astablished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Network connection astablished." />
+    <MESSAGE value="Network connection with UDP established." />
+    <option name="LAST_COMMIT_MESSAGE" value="Network connection with UDP established." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,7 @@
 package hr.dulic.pokerapp.model;
 
 import hr.dulic.pokerapp.model.enums.HandType;
+import hr.dulic.pokerapp.model.enums.PlayerActionType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Player implements Serializable {
     Card[] pocketCards= new Card[2];
     Double roundBet;
     Hand winnningHand;
+    PlayerAction action;
 
     public Player(String username, Double balance){
 
@@ -25,6 +27,7 @@ public class Player implements Serializable {
         this.balance=balance;
         this.roundBet=0.0;
         this.winnningHand=new Hand(new ArrayList<>(), HandType.NO_PAIR);
+        this.action = new PlayerAction(PlayerActionType.NONE, 0.0);
 
     }
 
@@ -89,6 +92,14 @@ public class Player implements Serializable {
 
     public void setWinnningHand(Hand winnningHand) {
         this.winnningHand = winnningHand;
+    }
+
+    public PlayerAction getAction() {
+        return action;
+    }
+
+    public void setAction(PlayerAction action) {
+        this.action = action;
     }
 
     public String getWiningInfo(){

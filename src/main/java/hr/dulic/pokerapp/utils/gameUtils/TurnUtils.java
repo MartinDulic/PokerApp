@@ -1,14 +1,13 @@
 package hr.dulic.pokerapp.utils.gameUtils;
 
 import hr.dulic.pokerapp.model.GameState;
-import hr.dulic.pokerapp.controllers.ServerController;
 import hr.dulic.pokerapp.model.GameRules;
 import hr.dulic.pokerapp.model.Player;
 import hr.dulic.pokerapp.model.enums.GameFaze;
-import hr.dulic.pokerapp.utils.DialogUtils;
+import hr.dulic.pokerapp.utils.networkUtils.ServerNetworkUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.control.Alert;
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
@@ -18,42 +17,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TurnUtils {
 
-    public void startPlayerTurn(GameState gameState, Timeline timeline, Label labelCounter) {
-        if (gameState.getTurnsToNextFaze() < 1) {
-            setGameStateNext(gameState, timeline);
-            return;
-        }
 
-        AtomicInteger secondsLeft = new AtomicInteger(GameRules.turnTime + 1);
-        timeline = new Timeline(
-                new KeyFrame(Duration.seconds(1), event -> {gameState.setTurnTime(secondsLeft.getAndDecrement());
-                    labelCounter.setText(secondsLeft.toString());
-        }));
-
-        timeline.setCycleCount(GameRules.turnTime + 1);
-        PlayerActionUtils playerActionUtils = new PlayerActionUtils();
-        Timeline timeline1 = timeline;
-        timeline.setOnFinished(e -> playerActionUtils.doFold(gameState, timeline1));
-        timeline.play();
-
-    }
-
-    public void endPlayerTurn(GameState gameState, Timeline timeline) {
-        List<Player> remainingPlayers = gameState.getRemainingPlayers();
-
-        int nextIndex = remainingPlayers.indexOf(gameState.getActivePlayer()) + 1;
-
-        if (nextIndex == remainingPlayers.size()) {
-            nextIndex = 0;
-        }
-
-        gameState.setActivePlayer(gameState.getRemainingPlayers().get(nextIndex));
-
-        gameState.setTurnsToNextFaze(gameState.getTurnsToNextFaze() - 1);
-        //startPlayerTurn(gameState, timeline);
-    }
-
-    private  void setGameStateNext(GameState gameState, Timeline timeline) {
+    public static void setGameStateNext(GameState gameState, Timeline timeline) {
         switch (gameState.getFaze()) {
             case PREFLOP:
                 gameState.setFaze(GameFaze.FLOP);
@@ -81,8 +46,6 @@ public class TurnUtils {
 
         gameState.setTurnsToNextFaze(gameState.getRemainingPlayers().size());
         gameState.setRunningSum(0.0);
-
-        //startPlayerTurn(gameState, timeline);
     }
 
     public static void setGameStateStart(GameState gameState) {

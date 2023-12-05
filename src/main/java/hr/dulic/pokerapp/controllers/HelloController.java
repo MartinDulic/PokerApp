@@ -181,12 +181,10 @@ public class HelloController {
     }
 
     private void disableAllBtns() {
-
         for(Button button : getAllButtons(anchorPane) ){
             button.setDisable(true);
 
         }
-
     }
 
     public void startPlayerTurn(Player player){
@@ -718,12 +716,10 @@ public class HelloController {
         return straightPlayers;
     }
     private void enableFlopBtns() {
-
         disableAllBtns();
         btnCheck.setDisable(false);
         btnBet.setDisable(false);
         btnFold.setDisable(false);
-
     }
 
     private void paintCommunityCard(Card card,ImageView imageView) {
@@ -816,12 +812,10 @@ public class HelloController {
     }
 
     private void enablePreflopBtns(){
-
         disableAllBtns();
         btnCall.setDisable(false);
         btnRaise.setDisable(false);
         btnFold.setDisable(false);
-
     }
 
     public void call(){
