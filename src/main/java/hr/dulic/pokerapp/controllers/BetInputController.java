@@ -9,7 +9,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class BetInputController {
+public class BetInputController{
 
     @FXML
     private AnchorPane anchorPane;
@@ -28,15 +28,15 @@ public class BetInputController {
         return slider;
     }
 
-    private HelloController helloController;
+    private ClientController controller;
 
-    public void setHelloController(HelloController helloController) {
-        this.helloController = helloController;
+    public void setHelloController(ClientController controller) {
+        this.controller = controller;
     }
 
     public void onBtnBetClick() {
         // Pass the bet amount back to the HelloController
-        helloController.doBet(slider.getValue());
+        controller.sendBet(slider.getValue());
 
         Stage stage = (Stage) btnBet.getScene().getWindow(); // Get a reference to the stage
         stage.close();

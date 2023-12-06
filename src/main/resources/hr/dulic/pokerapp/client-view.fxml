@@ -6,10 +6,13 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <VBox alignment="CENTER" prefHeight="1060.0" prefWidth="1900.0" spacing="20.0" styleClass="mainPane" stylesheets="@../../../stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.dulic.pokerapp.controllers.ClientController">
   <padding>
@@ -78,6 +81,13 @@
               </menus>
             </MenuBar>
             <Label fx:id="lblWinningMessage" layoutX="407.0" layoutY="43.0" prefHeight="35.0" prefWidth="1179.0" text="Winning Message!" textFill="WHITE" />
+            <TextField fx:id="chatMessageTextField" layoutX="1434.0" layoutY="862.0" prefHeight="25.0" prefWidth="374.0" />
+            <Button fx:id="btnSendMsg" layoutX="1740.0" layoutY="887.0" mnemonicParsing="false" onAction="#sendChatMessage" prefHeight="29.0" prefWidth="68.0" text="Button" />
+            <ScrollPane layoutX="1434.0" layoutY="569.0" prefHeight="292.0" prefWidth="374.0">
+               <content>
+                  <TextFlow fx:id="chatTextFlow" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
    </children>

@@ -867,7 +867,7 @@ public class HelloController {
             BetInputController betInputController = fxmlLoader.getController();
 
             // Pass a reference to this HelloController
-            betInputController.setHelloController(this);
+           // betInputController.setHelloController(this);
 
             // Define an event handler for when the new window is shown
 
@@ -925,7 +925,7 @@ public class HelloController {
         RaiseInputController raiseInputController = fxmlLoader.getController();
 
         // Pass a reference to this HelloController
-        raiseInputController.setHelloController(this);
+        //raiseInputController.setHelloController(this);
 
         // Define an event handler for when the new window is shown
 

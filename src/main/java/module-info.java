@@ -5,6 +5,8 @@ module hr.dulic.pokerapp {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.rmi;
+    requires java.naming;
 
     opens hr.dulic.pokerapp to javafx.fxml;
     exports hr.dulic.pokerapp;

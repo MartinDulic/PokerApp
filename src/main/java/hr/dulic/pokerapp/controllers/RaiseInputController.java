@@ -26,15 +26,15 @@ public class RaiseInputController {
         return slider;
     }
 
-    private HelloController helloController;
+    private ClientController controller;
 
-    public void setHelloController(HelloController helloController) {
-        this.helloController = helloController;
+    public void setHelloController(ClientController controller) {
+        this.controller = controller;
     }
 
     public void onBtnRaiseClick() {
         // Pass the bet amount back to the HelloController
-        helloController.doRaise(slider.getValue());
+        controller.sendRaise(slider.getValue());
 
         Stage stage = (Stage) btnRaise.getScene().getWindow(); // Get a reference to the stage
         stage.close();

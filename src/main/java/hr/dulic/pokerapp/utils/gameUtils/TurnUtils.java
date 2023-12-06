@@ -71,8 +71,6 @@ public class TurnUtils {
         gameState.setWinner(null);
         CardUtils.dealCards(gameState);
         executeBlindBets(gameState);
-
-
     }
 
     private static void setPlayerRoles(GameState gameState) {

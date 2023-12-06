@@ -13,7 +13,7 @@ public class ClientNetworkUtils {
         try (DatagramSocket clientSocket = new DatagramSocket()){
             byte[] buffer = ByteArrayUtils.serializeObject(object);
             InetAddress serverAddress = InetAddress.getByName(NetworkConfiguration.HOST);
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, NetworkConfiguration.SEREVR_PORT);
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, NetworkConfiguration.SERVER_PORT);
             clientSocket.send(packet);
 
         } catch (SocketException | UnknownHostException e) {

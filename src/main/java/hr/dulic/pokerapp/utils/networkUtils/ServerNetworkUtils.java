@@ -3,10 +3,7 @@ package hr.dulic.pokerapp.utils.networkUtils;
 import hr.dulic.pokerapp.model.GameRules;
 import hr.dulic.pokerapp.model.GameState;
 import hr.dulic.pokerapp.model.Player;
-import hr.dulic.pokerapp.model.enums.PlayerActionType;
 import hr.dulic.pokerapp.utils.ByteArrayUtils;
-import hr.dulic.pokerapp.utils.gameUtils.PlayerActionUtils;
-import javafx.animation.Timeline;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -19,7 +16,7 @@ public class ServerNetworkUtils {
 
     public static void receivePlayersAsServer(GameState gameState) {
 
-        try(DatagramSocket serverSocket = new DatagramSocket(NetworkConfiguration.SEREVR_PORT)) {
+        try(DatagramSocket serverSocket = new DatagramSocket(NetworkConfiguration.SERVER_PORT)) {
             System.err.printf("Server listening on port:%s%n", serverSocket.getLocalPort());
 
             while (gameState.getPlayers().size() != GameRules.numberOfPlayers) {
@@ -43,7 +40,7 @@ public class ServerNetworkUtils {
 
     public static GameState receiveGameStateAsServer(GameState gameState) {
         GameState receivedObject = new GameState();
-        try (DatagramSocket serverSocket = new DatagramSocket(NetworkConfiguration.SEREVR_PORT)) {
+        try (DatagramSocket serverSocket = new DatagramSocket(NetworkConfiguration.SERVER_PORT)) {
             System.err.printf("Server listening on port:%s%n", serverSocket.getLocalPort());
 
             byte[] buffer = new byte[12400];
