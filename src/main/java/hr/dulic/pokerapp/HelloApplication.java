@@ -1,32 +1,21 @@
 package hr.dulic.pokerapp;
 
-import hr.dulic.pokerapp.controllers.ClientController;
-import hr.dulic.pokerapp.controllers.ServerController;
-import hr.dulic.pokerapp.model.ConfigurationKey;
-import hr.dulic.pokerapp.model.ConfigurationReader;
-import hr.dulic.pokerapp.model.enums.NetworkMessageType;
-import hr.dulic.pokerapp.utils.ChatUtils;
+
 import hr.dulic.pokerapp.utils.networkUtils.ChatRemoteService;
 import hr.dulic.pokerapp.utils.networkUtils.ChatRemoteServiceImpl;
 import hr.dulic.pokerapp.utils.networkUtils.NetworkConfiguration;
 import hr.dulic.pokerapp.model.enums.Role;
+import hr.dulic.pokerapp.utils.parserUtils.GameConfigParserUtils;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Objects;
 
 public class HelloApplication extends Application {
     public static Role role;
@@ -36,19 +25,19 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         if (role == Role.SERVER){
             startChatService();
-            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("server-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 200, 200);
+            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("server-config-dialog.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 175, 175);
             stage.setTitle(role.name());
             stage.setScene(scene);
-            stage.show();
         } else {
+            GameConfigParserUtils.setGameRulesFromXML();
             startChatClient();
             fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-dialog.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 300);
             stage.setTitle(role.name());
             stage.setScene(scene);
-            stage.show();
         }
+        stage.show();
     }
 
     public static void main(String[] args) {

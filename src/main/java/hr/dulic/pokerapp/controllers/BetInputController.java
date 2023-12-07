@@ -1,7 +1,5 @@
 package hr.dulic.pokerapp.controllers;
 
-import hr.dulic.pokerapp.model.GameRules;
-import hr.dulic.pokerapp.model.Player;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

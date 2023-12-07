@@ -7,6 +7,7 @@ module hr.dulic.pokerapp {
     requires org.kordamp.bootstrapfx.core;
     requires java.rmi;
     requires java.naming;
+    requires java.xml;
 
     opens hr.dulic.pokerapp to javafx.fxml;
     exports hr.dulic.pokerapp;

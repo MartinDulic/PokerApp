@@ -4,27 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Game procedure procedure astablished, simple player creation view added.">
-      <change afterPath="$PROJECT_DIR$/lib/fscontext-4.4.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/ConfigurationKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/ConfigurationReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/InitialDirContextCloseable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/ChatUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ChatRemoteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ChatRemoteServiceImpl.java" afterDir="false" />
+    <list default="true" id="2efab0bc-6bd5-470b-8d2c-bfac42f5847b" name="Changes" comment="Client saves state after finish, Chat implemented with RMI, config for network now possible trough config file.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ServerConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/PlayerActionRemoteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/parserUtils/CostumHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/parserUtils/GameConfigParserUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/parserUtils/XMLHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-config-dialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/BetInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/BetInputController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/RaiseInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/controllers/RaiseInputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/gameUtils/TurnUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ClientNetworkUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/NetworkConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ServerNetworkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/GameRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/enums/CardNotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/model/enums/CardNotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/ComparatorUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/ComparatorUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ChatRemoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/dulic/pokerapp/utils/networkUtils/ChatRemoteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/client-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hr/dulic/pokerapp/server-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +32,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -79,15 +75,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\java\hr\dulic\pokerapp\model" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\java\hr\dulic\pokerapp\utils\networkUtils" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\hr\dulic\pokerapp" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\hr\dulic\pokerapp\poker_cards_chips_2d" />
-      <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\pictures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\lib" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\hr\dulic\pokerapp" />
+      <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\lib" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp\src\main\resources\pictures" />
       <recent name="C:\Users\PREDATOR\Desktop\Projects\Java 2 Projekt\PokerApp" />
@@ -238,7 +234,14 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1701813493903</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Client saves state after finish, Chat implemented with RMI, config for network now possible trough config file.">
+      <option name="closed" value="true" />
+      <created>1701896099614</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1701896099614</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -249,7 +252,8 @@
     <MESSAGE value="Network connection with UDP established." />
     <MESSAGE value="Game state transfer enabled, working on game cycle when playing over internet." />
     <MESSAGE value="Game procedure procedure astablished, simple player creation view added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Game procedure procedure astablished, simple player creation view added." />
+    <MESSAGE value="Client saves state after finish, Chat implemented with RMI, config for network now possible trough config file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Client saves state after finish, Chat implemented with RMI, config for network now possible trough config file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

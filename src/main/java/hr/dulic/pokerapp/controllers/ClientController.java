@@ -6,6 +6,7 @@ import hr.dulic.pokerapp.model.enums.GameFaze;
 import hr.dulic.pokerapp.model.enums.PlayerActionType;
 import hr.dulic.pokerapp.utils.ChatUtils;
 import hr.dulic.pokerapp.utils.networkUtils.ClientNetworkUtils;
+import hr.dulic.pokerapp.utils.parserUtils.GameConfigParserUtils;
 import hr.dulic.pokerapp.utils.viewUtils.DrawUtils;
 import hr.dulic.pokerapp.utils.viewUtils.ThreadUtils;
 import javafx.animation.KeyFrame;
@@ -311,16 +312,20 @@ public class ClientController extends Thread {
 
             stage.setOnShown(event -> {
 
-                raiseInputController.getSlider().setMin(GameRules.bigBlind + gameState.getRunningSum());
+                double minValue = GameRules.bigBlind + gameState.getRunningSum();
+                System.out.println("CLIENTCONTROLLER minValue: " + minValue);
+                System.out.println("CLIENTCONTROLLER bigBlind: " + GameRules.bigBlind);
+
+                raiseInputController.getSlider().setMin(minValue);
                 raiseInputController.getSlider().setMax(gameState.getActivePlayer().getBalance());
-                raiseInputController.getSlider().setValue(GameRules.bigBlind + gameState.getRunningSum());
+                raiseInputController.getSlider().setValue(minValue);
                 raiseInputController.getSlider().setBlockIncrement(GameRules.betBlockIncrement);
                 raiseInputController.getSlider().setShowTickMarks(true);
                 raiseInputController.getSlider().setShowTickLabels(true);
                 raiseInputController.getSlider().setSnapToTicks(true);
-                raiseInputController.getLblMin().setText(String.valueOf(GameRules.bigBlind + gameState.getRunningSum()));
+                raiseInputController.getLblMin().setText(String.valueOf(minValue));
                 raiseInputController.getLblMax().setText(String.valueOf(gameState.getActivePlayer().getBalance()));
-                raiseInputController.getLblAmount().setText(String.valueOf(GameRules.bigBlind + gameState.getRunningSum()));
+                raiseInputController.getLblAmount().setText(String.valueOf(minValue));
 
                 raiseInputController.getSlider().valueProperty().addListener((observable, oldValue, newValue) ->
                         raiseInputController.getLblAmount().setText(String.valueOf(raiseInputController.getSlider().getValue())));
